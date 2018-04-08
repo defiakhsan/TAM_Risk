@@ -1,0 +1,13 @@
+/*:host /deep/ ng2-smart-table-title {
+  color: white;
+}*/
+
+:host /deep/ ng2-smart-table thead > tr > th {
+  color: white;
+  background-color: #009ECE;
+}
+
+/*:host /deep/ td.ng2-smart-actions a {
+  cursor: pointer;
+  color: white;
+}*/

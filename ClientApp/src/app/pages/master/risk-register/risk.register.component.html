@@ -1,0 +1,652 @@
+<nb-card>
+  <nb-card-header>Risk Register</nb-card-header>
+  <nb-card-body>
+    <form #myForm="ngForm" (ngSubmit)="submit()">
+      <table class="table">
+        <tr>
+          <td width="15%">
+            <div class="col-sm-auto">
+              <label>Year</label>
+            </div>
+          </td>
+          <td width="60%">
+            <div class="col-sm-auto">
+              <select class="form-control" name="yearPeriode" style="width:240px;">
+                <option *ngFor="let data of year" value="{{data.data}}">{{data.data}}</option>
+              </select>
+            </div>
+          </td>
+          <td width="25%">
+            <div class="col-sm-auto">
+              <button type="button" class="btn btn-success" style="width:240px;">Save</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td width="15%">
+            <div class="col-sm-auto">
+              <label>Risk No</label>
+            </div>
+          </td>
+          <td width="60%">
+            <div class="col-sm-auto">
+              <input type="text" class="form-control" ngModel name="riskno" style="width:240px;">
+            </div>
+          </td>
+          <td width="25%">
+            <div class="col-sm-auto">
+              <button type="button" class="btn btn-success" style="width:240px;">Cancel</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td width="15%"></td>
+          <td width="60%"></td>
+          <td width="25%">
+            <div class="col-sm-auto">
+              <button type="button" class="btn btn-success " style="width:240px;">Save As Draft</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <nb-tabset>
+        <nb-tab tabTitle="Division/Department">
+          <div class="form-group">
+            <table class="table">
+              <tr>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <label>Division</label>
+                  </div>
+                </td>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <input type="text" class="form-control" ngModel name="division">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <label>Department</label>
+                  </div>
+                </td>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <input type="text" class="form-control" ngModel name="department">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <label>Company KPI</label>
+                    <br />
+                    <button type="button" class="btn btn-success " style="width:240px;">Company KPI</button>
+                    <button type="button" class="btn btn-success " style="width:240px;">Company KPI Help</button>
+                  </div>
+                </td>
+                <td width="60%">
+                  <div class="col-sm-auto">
+                    <textarea rows="3" type="text" class="form-control" ngModel name="company_kpi"></textarea>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <label>Department KPI</label>
+                    <br />
+                    <button type="button" class="btn btn-success " style="width:240px;">Department KPI</button>
+                    <button type="button" class="btn btn-success " style="width:240px;">Department KPI Help</button>
+                  </div>
+                </td>
+                <td width="60%">
+                  <div class="col-sm-auto">
+                    <textarea rows="3" type="text" class="form-control" ngModel name="department_kpi"></textarea>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <label>Business Process</label>
+                    <br />
+                    <button type="button" class="btn btn-success " style="width:240px;">Business Process Help</button>
+                  </div>
+                </td>
+                <td width="60%">
+                  <div class="col-sm-auto">
+                    <textarea rows="3" type="text" class="form-control" ngModel name="business_process"></textarea>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </nb-tab>
+
+        <nb-tab tabTitle="Risk Description">
+          <div class="form-group">
+            <table class="table">
+              <tr>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <label>Loss Event</label>
+                    <br />
+                    <button type="button" class="btn btn-success " style="width:240px;">Loss Help</button>
+                  </div>
+                </td>
+                <td width="60%">
+                  <div class="col-sm-auto">
+                    <textarea rows="3" type="text" class="form-control" ngModel name="Loss Event"></textarea>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <label>Caused</label>
+                    <br />
+                    <button type="button" class="btn btn-success " style="width:240px;">Caused Help</button>
+                  </div>
+                </td>
+                <td width="60%">
+                  <div class="col-sm-auto">
+                    <textarea rows="3" type="text" class="form-control" ngModel name="caused"></textarea>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <label>Risk Impact</label>
+                    <br />
+                    <button type="button" class="btn btn-success " style="width:240px;">Risk Impact Help</button>
+                  </div>
+                </td>
+                <td width="60%">
+                  <div class="col-sm-auto">
+                    <select class="form-control" name="risk_impact" ngModel required>
+                      <option></option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <label>Risk Level</label>
+                    <br />
+                    <button type="button" class="btn btn-success " style="width:240px;">Risk Level Help</button>
+                  </div>
+                </td>
+                <td width="60%">
+                  <div class="col-sm-auto">
+                    <select class="form-control" name="risk_level" ngModel required>
+                      <option></option>
+                    </select>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td width="15%">
+                  <div class="col-sm-auto">
+                    <label>Accident</label>
+                    <br />
+                    <button type="button" class="btn btn-success " style="width:240px;">Accident Help</button>
+                  </div>
+                </td>
+                <td width="60%">
+                  <div class="col-sm-auto">
+
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="form-group">
+              <ng2-smart-table [settings]="settingsAC" [source]="source" (editConfirm)="submit($event)">
+              </ng2-smart-table>
+            </div>
+          </div>
+        </nb-tab>
+
+        <nb-tab tabTitle="Inherent Risk">
+          <div class="form-group">
+          </div>
+          <div class="form-group">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label>Notes</label>
+                  <br />
+                  <button type="button" class="btn btn-success" style="width:240px;">Notes Help</button>
+                </div>
+                <div class="col-sm-8">
+                  <textarea rows="3" type="text" class="form-control" ngModel name="Notes"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <nb-card-header>Inherent Risk Impact</nb-card-header>
+              <nb-card-body>
+                <div class="form-group">
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label>Financial Impact</label>
+                      <br />
+                      <button type="button" class="btn btn-success" style="width:260px;">Financial Category Help</button>
+                    </div>
+                    <div class="col-sm-3">
+                      <select class="form-control" name="financialImpactCategory" style="width:240px;">
+                        <option value=""></option>
+                      </select>
+                    </div>
+                    <div class="col-sm-3">
+                      <label>Amount</label>
+                      <br />
+                      <button type="button" class="btn btn-success" style="width:260px;">Financial Amount Help</button>
+                    </div>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ngModel name="financialImpactAmount" style="width:240px;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label>Operational Impact</label>
+                      <br />
+                      <button type="button" class="btn btn-success" style="width:260px;">Operational Category Help</button>
+                    </div>
+                    <div class="col-sm-3">
+                      <select class="form-control" name="operationalImpactCategory" style="width:240px;">
+                        <option value=""></option>
+                      </select>
+                    </div>
+                    <div class="col-sm-3">
+                      <label>Loss</label>
+                      <br />
+                      <button type="button" class="btn btn-success" style="width:260px;">Operational Loss Help</button>
+                    </div>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ngModel name="operationalImpactValue" style="width:240px;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label>Qualitative Impact</label>
+                      <br />
+                      <button type="button" class="btn btn-success" style="width:260px;">Lov Qualitative</button>
+                      <button type="button" class="btn btn-success" style="width:260px;">Qualitative Help</button>
+                    </div>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ngModel name="qualitativeDescription" style="width:240px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <hr />
+                </div>
+                <div class="form-group">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label>Overall Impact</label>
+                        <br />
+                        <button type="button" class="btn btn-success" style="width:260px;">Overall Impact Help</button>
+                      </div>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" ngModel name="qualitativeDescription" style="width:240px;">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label>Likelihood</label>
+                        <br />
+                        <button type="button" class="btn btn-success" style="width:260px;">Likelihood Impact Help</button>
+                      </div>
+                      <div class="col-sm-3">
+                        <select class="form-control" name="likelihood" style="width:240px;">
+                          <option value=""></option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label>Overall Risk</label>
+                        <br />
+                        <button type="button" class="btn btn-success" style="width:260px;">Overall Risk Help</button>
+                      </div>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" ngModel name="overallRisk" style="width:240px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nb-card-body>
+
+            </div>
+          </div>
+        </nb-tab>
+
+        <nb-tab tabTitle="UI Current Action / Controls">
+          <div class="form-group">
+          </div>
+          <div class="form-group">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label>Controls Description</label>
+                  <br />
+                  <button type="button" class="btn btn-success" style="width:240px;">Controls Help</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <ng2-smart-table [settings]="settingsCD" [source]="source" (editConfirm)="submit($event)">
+            </ng2-smart-table>
+          </div>
+          <div class="form-group">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-2">
+                  <label>Operation</label>
+                  <br />
+                  <button type="button" class="btn btn-success" style="width:180px;">Operation Help</button>
+                </div>
+                <div class="col-sm-4">
+                  <select class="form-control" name="operation" ngModel required>
+                    <option></option>
+                  </select>
+                </div>
+                <div class="col-sm-2">
+                  <label>Preventive</label>
+                  <br />
+                  <button type="button" class="btn btn-success" style="width:180px;">Preventive Help</button>
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" ngModel name="preventive">
+                </div>
+              </div>
+              <div class="form-group">
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <label>Appropriateness</label>
+                  <br />
+                  <button type="button" class="btn btn-success" style="width:240px;">Appropriateness Help</button>
+                </div>
+                <div class="col-sm-3">
+                  <select class="form-control" name="operation" ngModel required>
+                    <option></option>
+                  </select>
+                </div>
+                <div class="col-sm-2">
+                  <label>Detective</label>
+                  <br />
+                  <button type="button" class="btn btn-success" style="width:180px;">Detective Help</button>
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" ngModel name="detective">
+                </div>
+              </div>
+              <div class="form-group">
+              </div>
+              <div class="row">
+                <div class="col-sm-3">
+                  <label>Overall Control</label>
+                  <br />
+                  <button type="button" class="btn btn-success" style="width:240px;">Control Overall Help</button>
+                </div>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" ngModel name="overall">
+                </div>
+                <div class="col-sm-2">
+                  <label>Corrective</label>
+                  <br />
+                  <button type="button" class="btn btn-success" style="width:180px;">Corrective Help</button>
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" ngModel name="corrective">
+                </div>
+              </div>
+              <div class="form-group">
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+
+        <nb-tab tabTitle="Residual Risk">
+          <div class="form-group">
+          </div>
+          <div class="form-group">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-4">
+                  <label>Notes</label>
+                  <br />
+                  <button type="button" class="btn btn-success" style="width:240px;">Notes Help</button>
+                </div>
+                <div class="col-sm-8">
+                  <textarea rows="3" type="text" class="form-control" ngModel name="Notes"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <nb-card-header>Residual Risk Impact</nb-card-header>
+              <nb-card-body>
+                <div class="form-group">
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label>Financial Impact</label>
+                      <br />
+                      <button type="button" class="btn btn-success" style="width:260px;">Financial Category Help</button>
+                    </div>
+                    <div class="col-sm-3">
+                      <select class="form-control" name="financialImpactCategory" style="width:240px;">
+                        <option value=""></option>
+                      </select>
+                    </div>
+                    <div class="col-sm-3">
+                      <label>Amount</label>
+                      <br />
+                      <button type="button" class="btn btn-success" style="width:260px;">Financial Amount Help</button>
+                    </div>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ngModel name="financialImpactAmount" style="width:240px;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label>Operational Impact</label>
+                      <br />
+                      <button type="button" class="btn btn-success" style="width:260px;">Operational Category Help</button>
+                    </div>
+                    <div class="col-sm-3">
+                      <select class="form-control" name="operationalImpactCategory" style="width:240px;">
+                        <option value=""></option>
+                      </select>
+                    </div>
+                    <div class="col-sm-3">
+                      <label>Loss</label>
+                      <br />
+                      <button type="button" class="btn btn-success" style="width:260px;">Operational Loss Help</button>
+                    </div>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ngModel name="opLoss" style="width:240px;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <label>Qualitative Impact</label>
+                      <br />
+                      <button type="button" class="btn btn-success" style="width:260px;">Lov Qualitative</button>
+                      <button type="button" class="btn btn-success" style="width:260px;">Qualitative Help</button>
+                    </div>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ngModel name="qualitativeImpact" style="width:240px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <hr />
+                </div>
+                <div class="form-group">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label>Overall Impact</label>
+                        <br />
+                        <button type="button" class="btn btn-success" style="width:260px;">Overall Impact Help</button>
+                      </div>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" ngModel name="overallImpact" style="width:240px;">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label>Likelihood</label>
+                        <br />
+                        <button type="button" class="btn btn-success" style="width:260px;">Likelihood Impact Help</button>
+                      </div>
+                      <div class="col-sm-3">
+                        <select class="form-control" name="likelihood" style="width:240px;">
+                          <option value=""></option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <label>Overall Risk</label>
+                        <br />
+                        <button type="button" class="btn btn-success" style="width:260px;">Overall Risk Help</button>
+                      </div>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" ngModel name="overallRisk" style="width:240px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nb-card-body>
+            </div>
+          </div>
+        </nb-tab>
+
+        <nb-tab tabTitle="Expected Risk">
+          <div class="form-group">
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-2">
+                <input type="checkbox" name="plan"> Treatment Plan<br>
+              </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <label>Treatment Plan</label>
+                <br />
+                <button type="button" class="btn btn-success" style="width:240px;">EX Treatment Plan Help</button>
+              </div>
+              <div class="col-sm-8">
+                <textarea rows="3" type="text" class="form-control" ngModel name="treatmentPlan"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <label>Impact</label>
+                <br />
+                <button type="button" class="btn btn-success" style="width:240px;">EX Impact Help</button>
+              </div>
+              <div class="col-sm-3">
+                <select class="form-control" name="exImpact" style="width:240px;">
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <label>Likelihood</label>
+                <br />
+                <button type="button" class="btn btn-success" style="width:240px;">EX Likelihood Help</button>
+              </div>
+              <div class="col-sm-3">
+                <select class="form-control" name="exLikelihood" style="width:240px;">
+                  <option value=""></option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <label>Overall Risk</label>
+                <br />
+                <button type="button" class="btn btn-success" style="width:240px;">EX Overall Help</button>
+              </div>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" ngModel name="exOverall" style="width:240px;">
+              </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <label>PIC</label>
+                <br />
+                <button type="button" class="btn btn-success" style="width:240px;">EX PIC Help</button>
+              </div>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" ngModel name="exPIC" style="width:240px;">
+              </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <label>Schedule</label>
+                <br />
+                <button type="button" class="btn btn-success" style="width:240px;">EX Schedule Help</button>
+              </div>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" ngModel name="exSchedule" style="width:240px;">
+              </div>
+            </div>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+
+
+
+
+
+    </form>
+  </nb-card-body>
+</nb-card>
