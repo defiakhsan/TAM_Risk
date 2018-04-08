@@ -1,0 +1,41 @@
+<nb-card>
+  <nb-card-header>Reminder</nb-card-header>
+  <nb-card-body>
+    <!--<div class="form-group">
+      dfghdhjdjh
+    </div>-->
+    <form #myForm="ngForm" (ngSubmit)="submit()">
+    <div class="form-group">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+            <label>Year</label>
+          </div>
+          <div class="col-sm-3">
+            <select class="form-control" name="yearPeriode" style="width:240px;">
+              <option *ngFor="let data of year" value="{{data.data}}">{{data.data}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label>Type Reminder</label>
+          </div>
+          <div class="col-sm-3">
+            <input type="radio" name="rdSubmit"> Submit &nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="rdApproval"> Approval
+          </div>
+        </div>
+        <div class="form-group">
+        </div>
+        <!--<div class="form-group">
+          <ng2-smart-table [settings]="settings" [source]="source" >
+          </ng2-smart-table>
+        </div>-->
+      </div>
+    </div>
+  </form>
+  </nb-card-body>
+</nb-card>

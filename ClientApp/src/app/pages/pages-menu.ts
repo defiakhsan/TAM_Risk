@@ -41,5 +41,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
- 
+  {
+    title: 'Register',
+    icon: 'nb-home',
+    link: '/pages/reminder',
+  },
 ];

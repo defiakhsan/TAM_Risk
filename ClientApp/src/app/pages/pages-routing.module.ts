@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 
 import { PagesComponent } from "./pages.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { ReminderComponent } from "./reminder/reminder.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,15 @@ const routes: Routes = [
       {
         path: "master",
         loadChildren: "./master/master.module#MasterModule"
+      },
+      {
+        path: "reminder",
+        component: ReminderComponent
+      },
+      {
+        path: "",
+        redirectTo: "reminder",
+        pathMatch: "full"
       }
     ]
   }
