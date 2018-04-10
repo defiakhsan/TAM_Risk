@@ -1,3 +1,4 @@
+
 <nb-card>
   <nb-card-header>Reminder</nb-card-header>
   <nb-card-body>
@@ -5,37 +6,133 @@
       dfghdhjdjh
     </div>-->
     <form #myForm="ngForm" (ngSubmit)="submit()">
-    <div class="form-group">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-3">
-            <label>Year</label>
+      <div class="form-group">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-3">
+              <label>Year</label>
+            </div>
+            <div class="col-sm-3">
+              <select class="form-control" name="yearPeriode" style="width:240px;">
+                <option *ngFor="let data of year" value="{{data.data}}">{{data.data}}</option>
+              </select>
+            </div>
           </div>
-          <div class="col-sm-3">
-            <select class="form-control" name="yearPeriode" style="width:240px;">
-              <option *ngFor="let data of year" value="{{data.data}}">{{data.data}}</option>
-            </select>
+          <div class="form-group">
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <label>Type Reminder</label>
+            </div>
+            <div class="col-sm-3">
+              <input type="radio" name="rdSubmit"> Submit &nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="radio" name="rdApproval"> Approval
+            </div>
+          </div>
+          <div class="form-group">
+          </div>
+          <div class="container" style="border:solid 1px grey; ">
+            <div class="container" *ngIf="showMan">
+              <div class="form-group">
+              </div>
+              <div class="row">
+                <div class="col-sm-2">
+                  <label>Type</label>
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" ngModel name="typeReminder" style="width:240px;">
+                </div>
+              </div>
+              <div class="form-group">
+              </div>
+              <div class="row">
+                <div class="col-sm-2">
+                  <label>Body</label>
+                </div>
+                <div class="col-sm-10">
+                  <textarea rows="3" type="text" class="form-control" ngModel name="bodyReminder"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+              </div>
+              <div class="row">
+                <div class="col-sm-2">
+                  <button type="button" class="btn btn-primary btn-sm" style="width:180px;">Send Reminder</button>
+                </div>
+              </div>
+              <div class="form-group">
+              </div>
+            </div>
+            <div class="container" *ngIf="showView">
+              <div class="form-group">
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>
+                          #
+                        </th>
+                        <th>
+                          Division
+                        </th>
+                        <th>
+                          Department
+                        </th>
+                        <th>
+                          Status
+                        </th>
+                        <th>
+
+                        </th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="emp in employees">
+                        <th scope="row">
+                          {{$index+1}}
+                        </th>
+                        <td>
+                          data dummy 1
+                        </td>
+                        <td>
+                          data dummy 2
+                        </td>
+                        <td>
+                          data dummy 3
+                        </td>
+                        <td>
+                          <span class="glyphicon glyphicon-pencil"></span>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+                <div class="form-group">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-primary btn-sm" style="width:240px;" >Add Reminder</button>
+              </div>
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-primary btn-sm" style="width:240px;" (click)="ManReminder()">Manual Reminder</button>
+              </div>
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-primary btn-sm" style="width:240px;" (click)="ViewReminder()">View Approved</button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="form-group">
-        </div>
-        <div class="row">
-          <div class="col-sm-3">
-            <label>Type Reminder</label>
-          </div>
-          <div class="col-sm-3">
-            <input type="radio" name="rdSubmit"> Submit &nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="radio" name="rdApproval"> Approval
-          </div>
-        </div>
-        <div class="form-group">
-        </div>
-        <!--<div class="form-group">
-          <ng2-smart-table [settings]="settings" [source]="source" >
-          </ng2-smart-table>
-        </div>-->
       </div>
-    </div>
-  </form>
+    </form>
   </nb-card-body>
 </nb-card>

@@ -8,6 +8,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Transaksi',
+    icon: 'nb-home',
+    link: '/pages/master/risk-register',
+  },
+  {
     title: 'Master',
     icon: 'nb-locked',
     children: [
@@ -24,10 +29,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/master/risk-matriks-indicator',
       },
       {
-        title: 'Risk Register',
-        link: '/pages/master/risk-register',
-      },
-      {
         title: 'Financial Indicator Risk',
         link: '/pages/master/financial-indicator-risk',
       },
@@ -40,9 +41,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/master/qualitative-indicator',
       },
     ],
-  },
+  },  
   {
-    title: 'Register',
+    title: 'Reminder',
     icon: 'nb-home',
     link: '/pages/reminder',
   },
